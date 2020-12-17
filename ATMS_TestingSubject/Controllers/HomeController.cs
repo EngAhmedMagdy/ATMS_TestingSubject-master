@@ -98,7 +98,7 @@ namespace ATMS_TestingSubject.Controllers
         public ActionResult Register()
         {
             //  dropdownlist elments
-            ViewBag.DepId = new SelectList(db.Departments, "DepId", "DepName");
+            ViewBag.DepId = new SelectList(db.Departments, "DepId", "DepName","1");
             return View();
         }
         // button for register

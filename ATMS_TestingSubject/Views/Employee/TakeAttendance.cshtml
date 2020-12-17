@@ -2,10 +2,9 @@
 
 @{
     ViewBag.Title = "Attend Now";
-    int CU = (int)TempData.Peek("CurrentUser");
 }
 
-<h2>Create</h2>
+<h2>Take attendance</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -33,5 +32,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to profile", "Details","UserInfo",new { id=CU}, new { @class = "btn btn-default" })
+    @Html.ActionLink("Back to profile", "Index","Employee",null, null)
 </div>

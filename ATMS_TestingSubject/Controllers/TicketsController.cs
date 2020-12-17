@@ -14,42 +14,7 @@ namespace ATMS_TestingSubject.Controllers
     public class TicketsController : Controller
     {
         private ATMS_Model db = new ATMS_Model();
-        private static int TicketNum;
-
-        public ActionResult GetTicket(int Id)
-        {
-            var alltikects = db.Tickets.ToArray();
-            TimeSpan TicketAvailable;
-            TimeSpan? TimePassed;
-            TimeSpan.TryParse("24:00:00", out TicketAvailable); //time needed to get another code
-            Ticket Newticket = new Ticket();
-            if (alltikects.Length > 0)
-            {
-                TicketNum = alltikects.Last().RollNo;
-            }
-            var OldTickets = alltikects.Where(x => x.Id == Id).ToArray();
-            if (OldTickets.Length > 0)
-            {
-                TimePassed = DateTime.Now.TimeOfDay - OldTickets.Last().time;
-
-                if (TimePassed < TicketAvailable)
-                {
-                    Response.Write("wait " + (TicketAvailable - TimePassed) + " to get a second barcode");
-                    Response.Write("your last barcode is");
-
-                    return View(OldTickets.Last());
-                }
-
-            }
-            Newticket.RollNo = ++TicketNum;
-            Newticket.time = DateTime.Now.TimeOfDay;
-            Newticket.date = DateTime.Now.ToLocalTime();
-            Newticket.Id = Id;
-            db.Tickets.Add(Newticket);
-            db.SaveChanges();
-            Response.Write("your ticket number is " + TicketNum);
-            return View(Newticket);
-        }
+        
 
         // GET: Tickets
         public async Task<ActionResult> Index()

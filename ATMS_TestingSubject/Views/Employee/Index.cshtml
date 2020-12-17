@@ -1,18 +1,33 @@
-﻿
+﻿@model ATMS_TestingSubject.Models.UserInfo
+@using ATMS_TestingSubject.Models
+
 @{
-    Layout = null;
+    ViewBag.Title = "Employee Dashboard";
+    Layout = "~/Views/Shared/_Employee.cshtml";
 }
+<div class="container">
+    <hr />
+    <h4>
+        Welcome Back, @Session["EmpName"]!<br />
+        Here are your recent updates: <br />
+        Absence Hours : @Model.AbsenceHours <br />
+        Deparment : @Model.Department.DepName <br />
+        Active State : @Model.Active
+    </h4>
+    <hr />
+    <br />
+    <p>
 
-<!DOCTYPE html>
+        @Html.ActionLink("To Edit Yor  Account Click Here", "EditMe", "Employee") <br />
+        @Html.ActionLink("To see Your Details Click Here", "DetailsMe", "Employee")
+        <br />
+        @Html.ActionLink("To Change Your Password Click Here", "ChangePassword", "Employee")
+    </p>
+    <hr />
+    <h6>
+        @Html.ActionLink("Logout", "Logout", "Home")
+    </h6>
+    <br />
+    <hr />
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-        hello employee
-    </div>
-</body>
-</html>
+</div>

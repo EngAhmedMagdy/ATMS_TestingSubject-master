@@ -15,7 +15,6 @@ namespace ATMS_TestingSubject.Classes
         [MinLength(5, ErrorMessage = "Min Length is 5 Char")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Password is Required")]
-        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\da-zA-Z])(.{8,30})$", ErrorMessage = "*Should Be strong and 8 TO 32 Char")]
         [DataType(DataType.Password)]
         public string Passward { get; set; }
         [Required(ErrorMessage = "Confirm Password is Required")]

@@ -24,6 +24,7 @@ namespace ATMS_TestingSubject.Models
         public int LeaveId { get; set; }
 
         [StringLength(200)]
+        [Display(Name = "Reason for leaving")]
         public string LeaveRequest { get; set; }
 
         [StringLength(50)]

@@ -19,16 +19,40 @@ namespace ATMS_TestingSubject
         }
     }
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class NoDirectAccessAttribute : ActionFilterAttribute
+    public class OnlyEmployeeAccessAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (filterContext.HttpContext.Request.UrlReferrer == null ||
-                        filterContext.HttpContext.Request.Url.Host != filterContext.HttpContext.Request.UrlReferrer.Host)
+            HttpSessionStateBase session = filterContext.HttpContext.Session;
+            if (session != null && session["EmpId"] == null)
             {
-                filterContext.Result = new RedirectToRouteResult(new
-                               RouteValueDictionary(new { controller = "Home", action = "Login", area = "" }));
+                filterContext.Result = new RedirectToRouteResult(
+                    new RouteValueDictionary {
+                                { "Controller", "Home" },
+                                { "Action", "Login" }
+                                });
+            }
+        }
+
+
+
+    }
+
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public class OnlyAdminAccessAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            HttpSessionStateBase session = filterContext.HttpContext.Session;
+            if (session != null && session["AdminId"] == null)
+            {
+                filterContext.Result = new RedirectToRouteResult(
+                    new RouteValueDictionary {
+                                { "Controller", "Home" },
+                                { "Action", "Login" }
+                                });
             }
         }
     }
+
 }

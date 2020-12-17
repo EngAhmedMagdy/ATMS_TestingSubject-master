@@ -133,7 +133,6 @@
     <Compile Include="Classes\UserLogin.cs" />
     <Compile Include="Classes\UserRegister.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HeadController.cs" />
@@ -212,8 +211,6 @@
     <Content Include="Views\UserInfo\Edit.cshtml" />
     <Content Include="Views\UserInfo\AdminDashboard.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Tickets\GetTicket.cshtml" />
-    <Content Include="Views\Attendances\Create.cshtml" />
     <Content Include="src\scss\style.scss" />
     <Content Include="src\scss\_adminDashboard.scss" />
     <Content Include="src\scss\_adminNavbar.scss" />
@@ -252,6 +249,13 @@
     <Content Include="Views\Admin\DeleteUser.cshtml" />
     <Content Include="Views\Admin\OnlineUsers.cshtml" />
     <Content Include="Views\Admin\LeavingRequest.cshtml" />
+    <Content Include="Views\Shared\_Employee.cshtml" />
+    <Content Include="Views\Employee\DetailsMe.cshtml" />
+    <Content Include="Views\Employee\EditMe.cshtml" />
+    <Content Include="Views\Employee\ChangePassword.cshtml" />
+    <Content Include="Views\Employee\TakeAttendance.cshtml" />
+    <Content Include="Views\Employee\GetTicket.cshtml" />
+    <Content Include="Views\Employee\LeavingRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
