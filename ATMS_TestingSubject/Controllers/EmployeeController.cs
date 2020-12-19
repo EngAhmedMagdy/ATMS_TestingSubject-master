@@ -7,6 +7,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Quartz;
+using Quartz.Impl;
 
 namespace ATMS_TestingSubject.Controllers
 {
@@ -16,13 +18,53 @@ namespace ATMS_TestingSubject.Controllers
         // home dashboed
         private static int TicketNum;
 
+        
+        [HttpGet]
+        [ChildActionOnly]
+        [ActionName("RandomCheck")]
+        public PartialViewResult RandomCheck_get()
+        {
+            int timeInSec = 10;
+            int id = int.Parse(Session["EmpId"].ToString());
+            var myAcc = db.UserInfoes.Single(a => a.Id == id);
+            if (ScheduleJob.n >= timeInSec)
+            {
+                myAcc.Active = false;
+                myAcc.AbsenceHours ++;
+                db.SaveChanges();
+                return PartialView("_Question");
+
+            }
+            return PartialView(myAcc);
+
+        }
+        [HttpPost]
+        [ChildActionOnly]
+        [ActionName("RandomCheck")]
+
+        public ActionResult RandomCheck_post()
+        {
+            int id = int.Parse(Session["EmpId"].ToString());
+            var myAcc = db.UserInfoes.Single(a => a.Id == id);
+            myAcc.Active = true;
+            db.SaveChanges();
+            ScheduleJob.n = 0;
+            return PartialView(myAcc);
+
+        }
+
+
         private ATMS_Model db = new ATMS_Model();
         [OnlyEmployeeAccess]
         public ActionResult Index()
         {
+
             int id = int.Parse(Session["EmpId"].ToString());
             var myAcc = db.UserInfoes.Single(a => a.Id == id);
             return View(myAcc);
+
+
+
         }
         // view for edit my account
         [HttpGet]

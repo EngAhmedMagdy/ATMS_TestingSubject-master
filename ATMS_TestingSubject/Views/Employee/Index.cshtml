@@ -1,18 +1,28 @@
 ﻿@model ATMS_TestingSubject.Models.UserInfo
-@using ATMS_TestingSubject.Models
 
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 @{
     ViewBag.Title = "Employee Dashboard";
     Layout = "~/Views/Shared/_Employee.cshtml";
+
 }
+
+
+
 <div class="container">
     <hr />
+
+    @Html.Action("RandomCheck")
+
+
     <h4>
         Welcome Back, @Session["EmpName"]!<br />
         Here are your recent updates: <br />
         Absence Hours : @Model.AbsenceHours <br />
         Deparment : @Model.Department.DepName <br />
         Active State : @Model.Active
+
     </h4>
     <hr />
     <br />
@@ -29,5 +39,4 @@
     </h6>
     <br />
     <hr />
-
 </div>
