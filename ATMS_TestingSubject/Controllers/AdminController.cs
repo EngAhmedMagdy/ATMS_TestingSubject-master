@@ -532,9 +532,24 @@ namespace ATMS_TestingSubject.Controllers
         public ActionResult LeavingRequest()
         {
 
-            DateTime d = DateTime.Now.Date;
-            return View(db.Leavings.Where(a => a.Date == d));
+            return View(db.Leavings.Where(x=> x.LeaveState==States.Pending.ToString()));
 
+        }
+        [OnlyAdminAccess]
+
+        public ActionResult Accept(int id)
+        {
+            db.Leavings.Single(x => x.LeaveId == id).LeaveState = States.Aprroved.ToString();
+            db.SaveChanges();
+            return RedirectToAction("LeavingRequest");
+        }
+        [OnlyAdminAccess]
+
+        public ActionResult Refuse(int id)
+        {
+            db.Leavings.Single(x => x.LeaveId == id).LeaveState = States.NotApproved.ToString();
+            db.SaveChanges();
+            return RedirectToAction("LeavingRequest");
         }
 
     }

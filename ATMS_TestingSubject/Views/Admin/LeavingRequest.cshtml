@@ -50,8 +50,8 @@
                             @Html.DisplayFor(modelItem => item.LeaveState)
                         </td>
                         <td>
-                            @Html.ActionLink("Accept", "Edit", new { id = item.LeaveId }) |
-                            @Html.ActionLink("Refuse", "Details", new { id = item.LeaveId }) |
+                            @Html.ActionLink("Accept", "Accept", "Admin", new { id = item.LeaveId }, null) |
+                            @Html.ActionLink("Refuse", "Refuse", "Admin", new { id = item.LeaveId }, null) |
                         </td>
                     </tr>
                 }

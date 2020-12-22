@@ -142,7 +142,9 @@ namespace ATMS_TestingSubject.Controllers
         public ActionResult CurrentEmp()
         {
             int id = int.Parse(Session["HeadId"].ToString());
-            var CurrentEmployees = db.UserInfoes.Where(x => x.DepId == id);
+            var user = db.UserInfoes.Where(x => x.Id == id).FirstOrDefault();
+
+            var CurrentEmployees = db.UserInfoes.Where(x => x.DepId == user.DepId);
             return View(CurrentEmployees);
         }
         [HttpGet]
@@ -153,14 +155,32 @@ namespace ATMS_TestingSubject.Controllers
             var OnlineEmployees = db.UserInfoes.Where(x => x.DepId == id && x.Active == true);
             return View(OnlineEmployees);
         }
-        [OnlyHeadAccess]
+        /*[OnlyHeadAccess]
         [HttpGet]
         public ActionResult LeavingEmps()
         {
-            int id = int.Parse(Session["HeadId"].ToString()); ;
-            var leavers = SP.Database.SqlQuery<Leaving>("leavingOfDep @id", new SqlParameter("id", id));
-            return View(leavers);
+            int id = int.Parse(Session["HeadId"].ToString());
+            var CurrentEmployees = db.UserInfoes.Where(x => x.Id == id).FirstOrDefault();
+
+            /*var leavers = SP.Database.SqlQuery<Leaving>("leavingOfDep @id", new SqlParameter("id", CurrentEmployees.DepId));
+            List<Leaving> leavers = new List<Leaving>();
+            var ids = db.UserInfoes.Where(x => x.DepId == id).Select(x => x.Id);
+
+            List<int> rolls = new List<int>();
+                 foreach (var i in ids)
+            {
+                rolls.Add(db.Tickets.Single(x => x.Id == i).RollNo);
+            }
+            
+            foreach (var r in rolls)
+            {
+                leavers.Add(db.Leavings.Single(x => x.RollNo == r));
+            }
+            ViewBag.leavers = leavers;
+
+            return View() ;
 
         }
+        */
     }
 }
