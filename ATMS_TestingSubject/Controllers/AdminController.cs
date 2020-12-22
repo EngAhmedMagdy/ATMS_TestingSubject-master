@@ -269,7 +269,7 @@ namespace ATMS_TestingSubject.Controllers
         public ActionResult Requests()
         {
 
-            return View(db.UserInfoes.Where(a => a.Type == "Employee" && a.Accepted == false));
+            return View(db.UserInfoes.Where(a =>  a.Accepted == false));
 
         }
         // accepted for emp
@@ -282,7 +282,7 @@ namespace ATMS_TestingSubject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserInfo user = db.UserInfoes.Where(a => a.Type == "Employee" && a.Accepted == false && a.Id == id).FirstOrDefault();
+            UserInfo user = db.UserInfoes.Where(a => a.Accepted == false && a.Id == id).FirstOrDefault();
             if (user == null)
             {
                 return HttpNotFound();
@@ -424,7 +424,7 @@ namespace ATMS_TestingSubject.Controllers
                 ui.Gender = userInfo.Gender;
                 ui.DepId = userInfo.DepId;
                 ui.Active = false;
-                ui.Accepted = null;
+                ui.Accepted = true;
                 ui.AbsenceHours = 0;
                 db.UserInfoes.Add(ui);
                 db.SaveChangesAsync();

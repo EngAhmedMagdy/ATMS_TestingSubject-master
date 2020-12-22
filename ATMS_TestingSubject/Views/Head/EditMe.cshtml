@@ -3,13 +3,13 @@
 
 @{
     ViewBag.Title = "Edit Me";
-    Layout = "~/Views/Shared/_Employee.cshtml";
+    Layout = "~/Views/Shared/_Head.cshtml";
 }
 <div class="container">
 
     <h2>EditMe</h2>
 
-    @using (Html.BeginForm("EditMe", "Employee", FormMethod.Post))
+    @using (Html.BeginForm("EditMe", "Head", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
 
@@ -67,7 +67,7 @@
         </div>
     }
     <div>
-        @Html.ActionLink("Back to List", "Index", "Employee")
+        @Html.ActionLink("Back to List", "Index", "Head")
     </div>
 
 </div>

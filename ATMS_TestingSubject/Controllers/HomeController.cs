@@ -15,7 +15,8 @@ namespace ATMS_TestingSubject.Controllers
         // home page view 
         [HttpGet]
         public ActionResult Index()
-        {   
+        {
+            Logout();
             return View();
         }
        

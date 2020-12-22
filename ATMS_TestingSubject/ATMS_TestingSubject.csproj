@@ -170,8 +170,26 @@
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\ExcuteJob.cs" />
     <Compile Include="Models\Leaving.cs" />
+    <Compile Include="Models\leavingOfDep_Result.cs">
+      <DependentUpon>Stored.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MeetingInfo.cs" />
     <Compile Include="Models\ScheduleJob.cs" />
+    <Compile Include="Models\Stored.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stored.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Stored.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stored.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Stored.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stored.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\UsersInMeeting.cs" />
@@ -186,8 +204,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Stored.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Stored.edmx</DependentUpon>
+      <LastGenOutput>Stored.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Stored.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Stored.edmx</DependentUpon>
+      <LastGenOutput>Stored.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Stored.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Stored.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Stored.edmx.diagram">
+      <DependentUpon>Stored.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -254,7 +289,6 @@
     <Content Include="src\scss\_mixins.scss" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Head\Index.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Shared\_Admin.cshtml" />
@@ -288,6 +322,14 @@
     <Content Include="Views\Employee\LeavingRequest.cshtml" />
     <Content Include="Views\Shared\_Question.cshtml" />
     <Content Include="Views\Employee\RandomCheck.cshtml" />
+    <Content Include="Views\Shared\_Head.cshtml" />
+    <Content Include="Views\Head\Index.cshtml" />
+    <Content Include="Views\Head\EditMe.cshtml" />
+    <Content Include="Views\Head\DetailsMe.cshtml" />
+    <Content Include="Views\Head\ChangePassword.cshtml" />
+    <Content Include="Views\Head\CurrentEmp.cshtml" />
+    <Content Include="Views\Head\OnlineEmp.cshtml" />
+    <Content Include="Views\Head\LeavingEmps.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,6 +346,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

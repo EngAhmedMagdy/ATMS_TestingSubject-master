@@ -62,6 +62,22 @@ namespace ATMS_TestingSubject
                 }
             }
         }
-
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public class OnlyHeadAccessAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            HttpSessionStateBase session = filterContext.HttpContext.Session;
+            if (session != null && session["HeadId"] == null)
+            {
+                filterContext.Result = new RedirectToRouteResult(
+                    new RouteValueDictionary {
+                                { "Controller", "Home" },
+                                { "Action", "Login" }
+                                });
+            }
+        }
     }
+
+}
 

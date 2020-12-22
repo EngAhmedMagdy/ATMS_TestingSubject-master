@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -10,7 +11,7 @@
           content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="AFB" />
-    <title>Employee | </title>
+    <title>Head of Deparment | </title>
     <!-- Favicon icon -->
     <!--fonts import -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap"
@@ -33,7 +34,7 @@
                 </a>
             </li>
             <li class="custom-nav-item">
-                <a href="@Url.Action("Index", "Employee")" class="custom-nav-link">
+                <a href="@Url.Action("Index", "Head")" class="custom-nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="24"
                          height="24"
@@ -55,7 +56,7 @@
 
             <li class="custom-nav-item">
 
-                <a href="@Url.Action("GetTicket","Employee")" class="custom-nav-link">
+                <a href="@Url.Action("CurrentEmp","Head")" class="custom-nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="24"
                          height="24"
@@ -71,13 +72,13 @@
                         <polyline points="9 22 9 12 15 12 15 22"
                                   class="icon-primary"></polyline>
                     </svg>
-                    <span class="link-text">Acquire a Barcode</span>
+                    <span class="link-text">Current Employees</span>
                 </a>
             </li>
 
 
             <li class="custom-nav-item">
-                <a href="@Url.Action("TakeAttendance","Employee")" class="custom-nav-link">
+                <a href="@Url.Action("OnlineEmp","Head")" class="custom-nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="24"
                          height="24"
@@ -93,12 +94,12 @@
                         <polyline points="9 22 9 12 15 12 15 22"
                                   class="icon-primary"></polyline>
                     </svg>
-                    <span class="link-text">Take Attendance</span>
+                    <span class="link-text">Online Employees</span>
                 </a>
             </li>
             <li class="custom-nav-item">
 
-                <a href="@Url.Action("LeavingRequest","Employee")" class="custom-nav-link">
+                <a href="@Url.Action("LeavingEmps","Head")" class="custom-nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="24"
                          height="24"
@@ -114,9 +115,10 @@
                         <polyline points="9 22 9 12 15 12 15 22"
                                   class="icon-primary"></polyline>
                     </svg>
-                    <span class="link-text">Leaving Request</span>
+                    <span class="link-text">Leaving Requests</span>
                 </a>
             </li>
+           
 
 
 

@@ -50,7 +50,7 @@ namespace ATMS_TestingSubject.Models
         public bool? Active { get; set; }
 
         public bool? Accepted { get; set; }
-
+        [Display(Name= "AbsenceSeconds")]
         public int? AbsenceHours { get; set; }
 
         public virtual Department Department { get; set; }

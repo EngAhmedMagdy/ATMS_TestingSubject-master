@@ -24,6 +24,11 @@ namespace ATMS_TestingSubject
                url: "{controller}/{action}",
                defaults: new { controller = "Home", action = "About" }
            );
+            routes.MapRoute(
+               name: "Approve",
+               url: "{controller}/{action}",
+               defaults: new { controller = "Admin", action = "Approve", id = UrlParameter.Optional}
+           );
         }
     }
 }

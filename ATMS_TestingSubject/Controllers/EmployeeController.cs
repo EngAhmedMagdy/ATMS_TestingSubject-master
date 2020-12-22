@@ -17,8 +17,8 @@ namespace ATMS_TestingSubject.Controllers
         // GET: Employee
         // home dashboed
         private static int TicketNum;
+        private ATMS_Model db = new ATMS_Model();
 
-        
         [HttpGet]
         [ChildActionOnly]
         [ActionName("RandomCheck")]
@@ -54,7 +54,7 @@ namespace ATMS_TestingSubject.Controllers
         }
 
 
-        private ATMS_Model db = new ATMS_Model();
+       
         [OnlyEmployeeAccess]
         public ActionResult Index()
         {
